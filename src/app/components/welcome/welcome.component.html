@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body bgcolor="teal">
+<div class="container">
+  <ul class="nav justify-content-end">
+    <li class="nav-item">
+      <a class="nav-link active" routerLink="/welcome/king">King</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/welcome/penpoly">PenPoly</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/welcome/lira">Lira</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link">{{name}}</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">LogOut</a>
+    </li>
+  </ul>
+</div>
+
+<router-outlet></router-outlet>
+<div class="container">
+
+</div>
+</body>
+</html>
