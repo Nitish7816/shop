@@ -9,7 +9,9 @@ import {UserService} from './services/user.service';
 import {KingComponent} from './components/article/king.component';
 import {LiraComponent} from './components/article/lira.component';
 import {PenpolyComponent} from './components/article/penpoly.component';
-
+import {ViewKingComponent} from './components/view-article/view-king.component';
+import {KingService} from './services/king.service';
+import { FormsModule } from '@angular/forms';
 
 
 const appRoutes: Routes = [
@@ -20,7 +22,13 @@ const appRoutes: Routes = [
     children: [
       {
         path: 'king',
-        component: KingComponent
+        component: KingComponent,
+        children: [
+          {
+            path: 'view-king',
+            component: ViewKingComponent
+          }
+        ]
       },
       {
         path: 'lira',
@@ -29,7 +37,7 @@ const appRoutes: Routes = [
       {
         path: 'penpoly',
         component: PenpolyComponent
-      }
+      },
     ]
   },
 ];
@@ -41,15 +49,17 @@ const appRoutes: Routes = [
     KingComponent,
     LiraComponent,
     PenpolyComponent,
+    ViewKingComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(
       appRoutes,
       {enableTracing: true}
-    )
+    ),
+    FormsModule
   ],
-  providers: [UserService],
+  providers: [UserService, KingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

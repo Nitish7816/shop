@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {KingService} from '../../services/king.service';
 
 @Component({
   selector: 'king',
@@ -25,8 +26,8 @@ export class KingComponent {
   selectedCode: any;
   quantity: number;
   // articleCode = {};
-  constructor() {
-this.quantity = 0;
+  constructor(private kingService: KingService) {
+ // this.quantity = 0;
   }
   onChange(e) {
     this.selectedCode = e.target.value;
@@ -43,7 +44,7 @@ this.quantity = 0;
   onArticle(e) {
     this.aprice = e.target.value;
     this.price = (this.aprice) * (this.priceMap[this.selectedItem]);
-    this.quantity = 1;
+
   }
   onSubmit(event) {
     event.preventDefault();
@@ -51,5 +52,12 @@ this.quantity = 0;
     console.log(this.selectedItem);
     console.log(this.quantity);
     console.log(this.price);
+    let data = {
+      selectCode: this.selectedCode,
+      selectItem: this.selectedItem,
+      qty: this.quantity,
+      price: this.price
+    };
+    this.kingService.setKingData(data);
   }
 }

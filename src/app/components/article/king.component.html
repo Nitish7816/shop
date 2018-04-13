@@ -10,10 +10,11 @@
       <option *ngFor="let item of article_item" >{{item}}</option>
     </select>
     <label for="numberOfArticle">Number of Article</label>
-    <input type="number" class="form-control" name="quantity" id="numberOfArticle" [value]="quantity" #pr (keyup)="onArticle($event)" (change)="onArticle($event)">
+    <input type="number" class="form-control" name="quantity" id="numberOfArticle" [(ngModel)]='quantity' #pr (keyup)="onArticle($event)" (change)="onArticle($event)">
     <label for="price">Price</label>
     <input type="text" class="form-control"   id="price" [value]="price"><br>
     <button type="submit" class="btn btn-primary">submit</button>
   </form>
-
+<a routerLink="/welcome/king/view-king">king view</a>
+  <router-outlet></router-outlet>
 </div>
