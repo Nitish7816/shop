@@ -1,10 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>welcome penpoly</h1>
-</body>
-</html>
+
+<div class="container">
+  <form (submit)="onSubmit($event)">
+    <label for="article_id">Article Number</label>
+    <select id="article_id" class="form-control" (change)="onChange($event)">
+      <option *ngFor="let item of article_id" [selected] = "item == 'select'">{{item}}</option>
+    </select>
+    <label for="articleName">Article Name</label>
+    <select id="articleName" class="form-control" (change)="onPrice($event)">
+      <option *ngFor="let item of article_item" >{{item}}</option>
+    </select>
+    <label for="numberOfArticle">Number of Article</label>
+    <input type="number" class="form-control" name="quantity" id="numberOfArticle" [(ngModel)]='quantity' #pr (keyup)="onArticle($event)" (change)="onArticle($event)">
+    <label for="price">Price</label>
+    <input type="text" class="form-control"   id="price" [value]="price"><br>
+    <button type="submit" class="btn btn-primary">submit</button>
+  </form>
+  <a routerLink="/welcome/king/view-king">Penpoly view</a>
+  <router-outlet></router-outlet>
+</div>

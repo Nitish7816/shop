@@ -48,10 +48,10 @@ export class KingComponent {
   }
   onSubmit(event) {
     event.preventDefault();
-    console.log(this.selectedCode);
-    console.log(this.selectedItem);
-    console.log(this.quantity);
-    console.log(this.price);
+    // console.log(this.selectedCode);
+    // console.log(this.selectedItem);
+    // console.log(this.quantity);
+    // console.log(this.price);
     let data = {
       selectCode: this.selectedCode,
       selectItem: this.selectedItem,
@@ -59,5 +59,31 @@ export class KingComponent {
       price: this.price
     };
     this.kingService.setKingData(data);
+    if (localStorage.getItem('addking') == null) {
+      let king: any = [];
+      king.push(JSON.stringify(data));
+      localStorage.setItem('addking', JSON.stringify(king));
+
+    }else {
+      let king: any = JSON.parse(localStorage.getItem('addking'));
+      let index: number = -1;
+      for (var i = 0; i < king.length; i++) {
+        let item = JSON.parse(king[i]);
+        if (item.article_item === data.selectItem) {
+          index = i;
+          break;
+        }
+      }
+      if (index === -1) {
+        king.push(JSON.stringify(data));
+        localStorage.setItem('addking', JSON.stringify(king));
+      }else {
+        let item  = JSON.parse(king[index]);
+        item.qty += 1;
+        king[index] = JSON.stringify(item);
+        localStorage.setItem('addking', JSON.stringify(king));
+      }
+    }
+
   }
 }
