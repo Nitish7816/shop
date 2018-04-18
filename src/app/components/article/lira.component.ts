@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {KingService} from '../../services/king.service';
+import {LiraService} from '../../services/lira.service';
 
 @Component({
   selector: 'lira',
@@ -26,7 +27,7 @@ export class LiraComponent {
   selectedCode: any;
   quantity: number;
   // articleCode = {};
-  constructor(private kingService: KingService) {
+  constructor(private liraService: LiraService) {
     // this.quantity = 0;
   }
   onChange(e) {
@@ -58,6 +59,6 @@ export class LiraComponent {
       qty: this.quantity,
       price: this.price
     };
-    this.kingService.setKingData(data);
+    this.liraService.setLiraData(data);
   }
 }

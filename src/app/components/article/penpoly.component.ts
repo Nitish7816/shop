@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {KingService} from '../../services/king.service';
+import {PenpolyService} from '../../services/penpoly.service';
 
 @Component({
   selector: 'penpoly',
@@ -26,7 +27,7 @@ export class PenpolyComponent {
   selectedCode: any;
   quantity: number;
   // articleCode = {};
-  constructor(private kingService: KingService) {
+  constructor(private penpolyService: PenpolyService) {
     // this.quantity = 0;
   }
   onChange(e) {
@@ -58,6 +59,6 @@ export class PenpolyComponent {
       qty: this.quantity,
       price: this.price
     };
-    this.kingService.setKingData(data);
+    this.penpolyService.setPenpolyData(data);
   }
 }

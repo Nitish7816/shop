@@ -1,5 +1,6 @@
 
 <div class="container">
+  <h2>Add penpoly Article</h2>
   <form (submit)="onSubmit($event)">
     <label for="article_id">Article Number</label>
     <select id="article_id" class="form-control" (change)="onChange($event)">
@@ -15,6 +16,7 @@
     <input type="text" class="form-control"   id="price" [value]="price"><br>
     <button type="submit" class="btn btn-primary">submit</button>
   </form>
-  <a routerLink="/welcome/king/view-king">Penpoly view</a>
-  <router-outlet></router-outlet>
+  <!--<a routerLink="/welcome/king/view-king">Penpoly view</a>-->
+  <!--<router-outlet></router-outlet>-->
+  <view-penpoly></view-penpoly>
 </div>

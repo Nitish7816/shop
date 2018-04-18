@@ -1,5 +1,6 @@
 
 <div class="container">
+  <h2>Add King Article</h2>
   <form (submit)="onSubmit($event)">
     <label for="article_id">Article Number</label>
     <select id="article_id" class="form-control" (change)="onChange($event)">
@@ -15,6 +16,6 @@
     <input type="text" class="form-control"   id="price" [value]="price"><br>
     <button type="submit" class="btn btn-primary">submit</button>
   </form>
-<a routerLink="/welcome/king/view-king">king view</a>
+<a routerLink="/welcome/view-king">king view</a>
   <router-outlet></router-outlet>
 </div>

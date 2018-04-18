@@ -12,6 +12,10 @@ import {PenpolyComponent} from './components/article/penpoly.component';
 import {ViewKingComponent} from './components/view-article/view-king.component';
 import {KingService} from './services/king.service';
 import { FormsModule } from '@angular/forms';
+import {ViewLiraComponent} from './components/view-article/view-lira.component';
+import {LiraService} from './services/lira.service';
+import {PenpolyService} from './services/penpoly.service';
+import {ViewPenpolyComponent} from './components/view-article/view-penpoly.component';
 
 
 const appRoutes: Routes = [
@@ -23,20 +27,34 @@ const appRoutes: Routes = [
       {
         path: 'king',
         component: KingComponent,
+        // children: [
+        //
+        // ]
+
+      },
+      {
+        path: 'view-king',
+        component: ViewKingComponent
+      },
+      {
+        path: 'lira',
+        component: LiraComponent,
         children: [
           {
-            path: 'view-king',
-            component: ViewKingComponent
+            path: 'view-lira',
+            component: ViewLiraComponent
           }
         ]
       },
       {
-        path: 'lira',
-        component: LiraComponent
-      },
-      {
         path: 'penpoly',
-        component: PenpolyComponent
+        component: PenpolyComponent,
+        children: [
+          {
+            path: 'view-penpoly',
+            component: ViewPenpolyComponent
+          }
+        ]
       },
     ]
   },
@@ -49,7 +67,9 @@ const appRoutes: Routes = [
     KingComponent,
     LiraComponent,
     PenpolyComponent,
-    ViewKingComponent
+    ViewKingComponent,
+    ViewLiraComponent,
+    ViewPenpolyComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +79,7 @@ const appRoutes: Routes = [
     ),
     FormsModule
   ],
-  providers: [UserService, KingService],
+  providers: [UserService, KingService, LiraService, PenpolyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
