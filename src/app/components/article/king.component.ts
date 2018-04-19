@@ -4,6 +4,7 @@ import {KingService} from '../../services/king.service';
 @Component({
   selector: 'king',
   templateUrl: './king.component.html',
+
 })
 export class KingComponent {
   article_id = ['select', '1578', 'H1518', 'H2405', 'H1529', '1538', 'H1530', 'H1543', 'H1540', '3171', 'H1783', '1758', '3040', '1844'

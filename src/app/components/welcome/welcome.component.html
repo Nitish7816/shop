@@ -1,32 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body bgcolor="teal">
-<div class="container">
-  <ul class="nav justify-content-end">
-    <li class="nav-item">
-      <a class="nav-link active" routerLink="/welcome/king">King</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/welcome/penpoly">PenPoly</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/welcome/lira">Lira</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link">{{name}}</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">LogOut</a>
-    </li>
-  </ul>
+<link data-require="bootstrap-css@3.3.6" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css"/>
+
+<div class="container-fluid border">
+  <div class="row">
+    <div class="col-md-9">
+      <ul class="nav">
+
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/home"><span class="glyphicon glyphicon-home" ></span> Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/about"><span class="glyphicon glyphicon-asterisk" ></span> About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/welcome/addItem"><span class="glyphicon glyphicon-plus" ></span> AddItem</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/store"><span class="glyphicon glyphicon-th-large" ></span> ViewItem</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/cart"><span class="glyphicon glyphicon-shopping-cart" ></span> SellItem</a>
+        </li>
+
+      </ul>
+    </div>
+    <div class="col-md-3">
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link">{{name}}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><span class="glyphicon glyphicon-off" ></span> LogOut</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
 </div>
 
+
+
 <router-outlet></router-outlet>
-<div class="container">
-</div>
-</body>
-</html>
+
+

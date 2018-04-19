@@ -10,7 +10,7 @@
         </select>
         <label for="articleName">Article Name</label>
         <select id="articleName" class="form-control" (change)="onPrice($event)">
-          <option *ngFor="let item of article_item" >{{item}}</option>
+          <option *ngFor="let item of article" >{{item}}</option>
         </select>
         <label for="numberOfArticle">Number of Article</label>
         <input type="number" class="form-control" name="quantity" id="numberOfArticle" [(ngModel)]='quantity' #pr (keyup)="onArticle($event)" (change)="onArticle($event)">

@@ -16,6 +16,8 @@ import {ViewLiraComponent} from './components/view-article/view-lira.component';
 import {LiraService} from './services/lira.service';
 import {PenpolyService} from './services/penpoly.service';
 import {ViewPenpolyComponent} from './components/view-article/view-penpoly.component';
+import {AddComponent} from './components/item-layout/add.component';
+
 
 
 const appRoutes: Routes = [
@@ -25,17 +27,26 @@ const appRoutes: Routes = [
     component: WelcomeComponent,
     children: [
       {
-        path: 'king',
-        component: KingComponent,
-        // children: [
-        //
-        // ]
+        path: 'addItem',
+        component: AddComponent,
+        children: [
+          {
+            path: 'king',
+            component: KingComponent,
+            // children: [
+            //
+            // ]
+
+          },
+          {
+            path: 'view-king',
+            component: ViewKingComponent
+          },
+        ]
 
       },
-      {
-        path: 'view-king',
-        component: ViewKingComponent
-      },
+
+
       {
         path: 'lira',
         component: LiraComponent,
@@ -69,7 +80,8 @@ const appRoutes: Routes = [
     PenpolyComponent,
     ViewKingComponent,
     ViewLiraComponent,
-    ViewPenpolyComponent
+    ViewPenpolyComponent,
+    AddComponent
   ],
   imports: [
     BrowserModule,

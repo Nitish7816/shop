@@ -4,3 +4,6 @@
   margin-top: 200px;
 }
 
+select.form-control:not([size]):not([multiple]) {
+  height: inherit;
+}
