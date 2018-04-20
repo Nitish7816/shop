@@ -19,6 +19,8 @@ import {ViewPenpolyComponent} from './components/view-article/view-penpoly.compo
 import {AddComponent} from './components/item-layout/add.component';
 import {AboutComponent} from './components/welcome/about.component';
 import {ViewComponent} from './components/item-layout/view.component';
+import {SellComponent} from './components/item-layout/sell.component';
+import {SellKingComponent} from './components/sell-article/sell-king.component';
 
 
 
@@ -69,9 +71,16 @@ const appRoutes: Routes = [
           }
         ]
       },
-
-
-
+      {
+        path: 'sellItem',
+        component: SellComponent,
+        children: [
+          {
+            path: 'sell-king',
+            component: SellKingComponent
+          }
+        ]
+      },
       {
         path: 'about',
         component: AboutComponent
@@ -93,7 +102,9 @@ const appRoutes: Routes = [
     ViewPenpolyComponent,
     AddComponent,
     AboutComponent,
-    ViewComponent
+    ViewComponent,
+    SellComponent,
+    SellKingComponent
   ],
   imports: [
     BrowserModule,
