@@ -6,18 +6,29 @@ import {KingService} from '../../services/king.service';
   templateUrl: './view-king.component.html'
 })
 export class ViewKingComponent implements OnInit {
-  items: any = {};
+  items = [];
   constructor(private kingService: KingService) {
 
   }
   ngOnInit() {
     this.getKingData();
   }
+
   getKingData() {
-    this.kingService.kingObj.subscribe((successData) => {
-      this.items = successData;
-    }, (errorData) => {
-      console.log(errorData);
-    });
+    let king = [];
+    king = JSON.parse(localStorage.getItem('addking'));
+    // console.log(king);
+    for (var i=0; i < king.length; i++) {
+      let item = JSON.parse(king[i]);
+      this.items.push(item);
+      console.log(this.items);
+    }
   }
+  // getKingData() {
+  //   this.kingService.kingObj.subscribe((successData) => {
+  //     this.items = successData;
+  //   }, (errorData) => {
+  //     console.log(errorData);
+  //   });
+  // }
 }
