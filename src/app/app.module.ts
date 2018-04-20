@@ -21,6 +21,7 @@ import {AboutComponent} from './components/welcome/about.component';
 import {ViewComponent} from './components/item-layout/view.component';
 import {SellComponent} from './components/item-layout/sell.component';
 import {SellKingComponent} from './components/sell-article/sell-king.component';
+import {SellLiraComponent} from './components/sell-article/sell-lira.component';
 
 
 
@@ -78,6 +79,10 @@ const appRoutes: Routes = [
           {
             path: 'sell-king',
             component: SellKingComponent
+          },
+          {
+            path: 'sell-lira',
+            component: SellLiraComponent
           }
         ]
       },
@@ -104,7 +109,8 @@ const appRoutes: Routes = [
     AboutComponent,
     ViewComponent,
     SellComponent,
-    SellKingComponent
+    SellKingComponent,
+    SellLiraComponent,
   ],
   imports: [
     BrowserModule,
