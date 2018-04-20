@@ -71,7 +71,7 @@ export class LiraComponent {
       qty: this.quantity,
       price: this.price
     };
-   // this.liraService.setLiraData(data);
+    this.liraService.setLiraData(this.data);
     if (localStorage.getItem('lira') == null) {
       let lira: any = [];
       lira.push(JSON.stringify(this.data));

@@ -27,14 +27,14 @@ export class LoginComponent {
   userLogin(e) {
     this.user = e.target.elements[0].value;
     this.pass = e.target.elements[1].value;
-    // console.log(this.user);
-    // for (var i = 0; i < this.data.length; i++) {
-    //   if (this.data[i].username === this.user && this.data[i].password === this.pass) {
-    //     this.userService.setUser(this.data[i].username);
-    //     this.router.navigate(['welcome']);
-    //   }
-    //
-    // }
-     this.router.navigate(['welcome']);
+    console.log(this.user);
+    for (var i = 0; i < this.data.length; i++) {
+      if (this.data[i].username === this.user && this.data[i].password === this.pass) {
+        this.userService.setUser(this.data[i].username);
+        this.router.navigate(['welcome']);
+      }
+
+    }
+     // this.router.navigate(['welcome']);
   }
 }
