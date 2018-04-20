@@ -1,26 +1,19 @@
 <div class="container">
-  <h1>View king data</h1>
+  <h1>Sell king data</h1>
   <table border="1">
     <tr>
       <th>article no</th>
       <th>article Name</th>
       <th> no of article</th>
       <th>Price</th>
-      <!--<th>Buy</th>-->
+      <th>sell no of item</th>
     </tr>
     <tr *ngFor="let i of items">
       <td>{{i.selectCode}}</td>
       <td>{{i.selectItem}}</td>
       <td>{{i.qty}}</td>
       <td>{{i.price}}</td>
+
     </tr>
   </table>
-  <!--<p >-->
-    <!--article no:{{items.selectCode}}<br>-->
-    <!--article name:{{items.selectItem}}<br>-->
-    <!--no of article:{{items.qty}}<br>-->
-    <!--price:{{items.price}}-->
-
-  <!--</p>-->
-
 </div>

@@ -36,7 +36,7 @@ export class LiraComponent {
   selectedItem: any;
   selectedCode: any;
   quantity: number;
-  data = {};
+
   // articleCode = {};
   constructor(private liraService: LiraService) {
     // this.quantity = 0;
@@ -65,38 +65,51 @@ export class LiraComponent {
     // console.log(this.selectedItem);
     // console.log(this.quantity);
     // console.log(this.price);
-    this.data = {
+    let data = {
       selectCode: this.selectedCode,
       selectItem: this.selectedItem,
       qty: this.quantity,
       price: this.price
     };
-    this.liraService.setLiraData(this.data);
-    if (localStorage.getItem('lira') == null) {
-      let lira: any = [];
-      lira.push(JSON.stringify(this.data));
-      console.log(lira);
-      localStorage.setItem('lira', JSON.stringify(lira));
-    }else {
-      let lira: any = [];
-      lira  = JSON.parse(localStorage.getItem('lira'));
-      if (lira.selectCode !== this.selectedCode) {
-        this.getfind(this.selectedCode);
-      }
-      localStorage.setItem('lira', JSON.stringify(lira));
 
+    // this.liraService.setLiraData(this.data);
+    if (localStorage.getItem('addlira') == null) {
+      let lira: any = [];
+      lira.push(JSON.stringify(data));
+      localStorage.setItem('addlira', JSON.stringify(lira));
+
+    }else {
+      let lira: any = JSON.parse(localStorage.getItem('addlira'));
+      let index: number = -1;
+      for (var i = 0; i < lira.length; i++) {
+        let item = JSON.parse(lira[i]);
+        if (item.selectCode === data.selectCode && item.selectItem === data.selectItem) {
+          index = i;
+          break;
+        }
+      }
+      if (index === -1) {
+        lira.push(JSON.stringify(data));
+        localStorage.setItem('addlira', JSON.stringify(lira));
+      }else {
+        let item  = JSON.parse(lira[index]);
+        item.qty += data.qty;
+        item.price += data.price;
+        lira[index] = JSON.stringify(item);
+        localStorage.setItem('addlira', JSON.stringify(lira));
+      }
     }
   }
-  getfind(selectCode) {
-    let lira = [];
-    lira = JSON.parse(localStorage.getItem('lira'));
-    console.log(lira);
-    for (var i=0; i<lira.length; i++) {
-      let item = JSON.parse(lira[i]);
-      // console.log('item', item);
-      // console.log(item.selectCode);
-      lira.push(JSON.stringify(this.data));
-    }
-    console.log(this.selectedCode);
-  }
+  // getfind(selectCode) {
+  //   let lira = [];
+  //   lira = JSON.parse(localStorage.getItem('lira'));
+  //   console.log(lira);
+  //   for (var i=0; i<lira.length; i++) {
+  //     let item = JSON.parse(lira[i]);
+  //     // console.log('item', item);
+  //     // console.log(item.selectCode);
+  //     lira.push(JSON.stringify(this.data));
+  //   }
+  //   console.log(this.selectedCode);
+  // }
 }

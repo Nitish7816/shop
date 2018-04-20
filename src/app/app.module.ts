@@ -17,6 +17,11 @@ import {LiraService} from './services/lira.service';
 import {PenpolyService} from './services/penpoly.service';
 import {ViewPenpolyComponent} from './components/view-article/view-penpoly.component';
 import {AddComponent} from './components/item-layout/add.component';
+import {AboutComponent} from './components/welcome/about.component';
+import {ViewComponent} from './components/item-layout/view.component';
+import {SellComponent} from './components/item-layout/sell.component';
+import {SellKingComponent} from './components/sell-article/sell-king.component';
+import {SellLiraComponent} from './components/sell-article/sell-lira.component';
 
 
 
@@ -39,36 +44,55 @@ const appRoutes: Routes = [
 
           },
           {
-            path: 'view-king',
-            component: ViewKingComponent
+            path: 'lira',
+            component: LiraComponent,
+          },
+          {
+            path: 'penpoly',
+            component: PenpolyComponent,
           },
         ]
 
       },
-
-
       {
-        path: 'lira',
-        component: LiraComponent,
+        path: 'viewItem',
+        component: ViewComponent,
         children: [
+          {
+            path: 'view-king',
+            component: ViewKingComponent
+          },
           {
             path: 'view-lira',
             component: ViewLiraComponent
-          }
-        ]
-      },
-      {
-        path: 'penpoly',
-        component: PenpolyComponent,
-        children: [
+          },
           {
             path: 'view-penpoly',
             component: ViewPenpolyComponent
           }
         ]
       },
+      {
+        path: 'sellItem',
+        component: SellComponent,
+        children: [
+          {
+            path: 'sell-king',
+            component: SellKingComponent
+          },
+          {
+            path: 'sell-lira',
+            component: SellLiraComponent
+          }
+        ]
+      },
+      {
+        path: 'about',
+        component: AboutComponent
+      }
     ]
   },
+
 ];
 @NgModule({
   declarations: [
@@ -81,7 +105,12 @@ const appRoutes: Routes = [
     ViewKingComponent,
     ViewLiraComponent,
     ViewPenpolyComponent,
-    AddComponent
+    AddComponent,
+    AboutComponent,
+    ViewComponent,
+    SellComponent,
+    SellKingComponent,
+    SellLiraComponent,
   ],
   imports: [
     BrowserModule,

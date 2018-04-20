@@ -77,18 +77,18 @@ export class KingComponent {
       qty: this.quantity,
       price: this.price
     };
-    this.kingService.setKingData(data);
+    // this.kingService.setKingData(data);
     if (localStorage.getItem('addking') == null) {
       let king: any = [];
       king.push(JSON.stringify(data));
       localStorage.setItem('addking', JSON.stringify(king));
-
+      alert('success ');
     }else {
       let king: any = JSON.parse(localStorage.getItem('addking'));
       let index: number = -1;
       for (var i = 0; i < king.length; i++) {
         let item = JSON.parse(king[i]);
-        if (item.article_item === data.selectItem) {
+        if (item.selectCode === data.selectCode && item.selectItem === data.selectItem) {
           index = i;
           break;
         }
@@ -96,11 +96,14 @@ export class KingComponent {
       if (index === -1) {
         king.push(JSON.stringify(data));
         localStorage.setItem('addking', JSON.stringify(king));
+        alert('success ');
       }else {
         let item  = JSON.parse(king[index]);
-        item.qty += 1;
+        item.qty += data.qty;
+        item.price += data.price;
         king[index] = JSON.stringify(item);
         localStorage.setItem('addking', JSON.stringify(king));
+        alert('success ');
       }
     }
 

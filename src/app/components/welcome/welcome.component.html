@@ -1,24 +1,25 @@
 <link data-require="bootstrap-css@3.3.6" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css"/>
 
 <div class="container-fluid border">
+
   <div class="row">
     <div class="col-md-9">
       <ul class="nav">
 
         <li class="nav-item">
-          <a class="nav-link active" routerLink="/home"><span class="glyphicon glyphicon-home" ></span> Home</a>
+          <a class="nav-link active" routerLink="/welcome"><span class="glyphicon glyphicon-home" ></span> Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/about"><span class="glyphicon glyphicon-asterisk" ></span> About</a>
+          <a class="nav-link" routerLink="/welcome/about"><span class="glyphicon glyphicon-asterisk" ></span> About</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/welcome/addItem"><span class="glyphicon glyphicon-plus" ></span> AddItem</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/store"><span class="glyphicon glyphicon-th-large" ></span> ViewItem</a>
+          <a class="nav-link" routerLink="/welcome/viewItem"><span class="glyphicon glyphicon-th-large" ></span> ViewItem</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/cart"><span class="glyphicon glyphicon-shopping-cart" ></span> SellItem</a>
+          <a class="nav-link" routerLink="/welcome/sellItem"><span class="glyphicon glyphicon-shopping-cart" ></span> SellItem</a>
         </li>
 
       </ul>
@@ -36,7 +37,23 @@
   </div>
 
 </div>
+<div class="container-fluid">
+  <div class="header-content">
+    <div class="row">
+      <div class="col-sm-3">
+        <img src="../../../assets/images/slogo.PNG" class="slogo"/>
+      </div>
+      <div class="col-sm-6">
+        <!--<h4>Lets Build...</h4>-->
+        <!--<h4>An eCommerce Shopping Cart Project using Angular 4</h4>-->
+      </div>
+      <div class="col-sm-3">
+        <span class="pull-right"><img src="../../../assets/images/slogo.PNG" class="slogo"/></span>
 
+      </div>
+    </div>
+  </div>
+</div>
 
 
 <router-outlet></router-outlet>
