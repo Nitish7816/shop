@@ -4,7 +4,21 @@ import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'login',
-  templateUrl: './login.component.html'
+  templateUrl: './login.component.html',
+  styles: [`
+  #btnLogin{
+    margin-left: 241px;
+  }
+    #username{
+      text-align: center;
+    }
+    #pass{
+      text-align: center;
+    }
+    #profile{
+      margin-left: 216px;
+    }
+  `]
 })
 export class LoginComponent {
   user: string;

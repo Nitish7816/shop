@@ -4,7 +4,12 @@ import { Router} from '@angular/router';
 
 @Component({
   selector: 'welcome',
-  templateUrl: './welcome.component.html'
+  templateUrl: './welcome.component.html',
+  styles: [
+    `
+    
+    `
+  ]
 })
 export class WelcomeComponent implements OnInit {
   name: string;

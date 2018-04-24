@@ -1,17 +1,86 @@
 
+<!--<div class="container">-->
+  <!--<h2> Invoice Generate</h2>-->
+  <!--<form>-->
+    <!--<div class="form-group row">-->
+      <!--&lt;!&ndash;<label for="name">name</label>&ndash;&gt;-->
+      <!--<input type="text" id="name" class="col-md-6" placeholder="Enter Name">-->
+      <!--&lt;!&ndash;<label for="date">Date</label>&ndash;&gt;-->
+     <!--&nbsp; <input type="date" id="date" placeholder="Date" class="col-md-3">-->
+    <!--</div>-->
+    <!--<div class="form-group row">-->
+      <!--&lt;!&ndash;<label for="address">Address</label>&ndash;&gt;-->
+      <!--<input type="text" id="address" class="col-md-9" placeholder="Address">-->
+
+    <!--</div>-->
+  <!--</form>-->
+<!--</div>-->
 <div class="container">
-  <h2> Invoice Generate</h2>
-  <form>
-    <div class="form-group row">
-      <!--<label for="name">name</label>-->
-      <input type="text" id="name" class="col-md-6" placeholder="Enter Name">
-      <!--<label for="date">Date</label>-->
-     &nbsp; <input type="date" id="date" placeholder="Date" class="col-md-3">
+
+<head>
+  <title>Simple Invoicing - Built with AngularJS by Rohan Arihant</title>
+  <meta charset='utf-8'>
+  <meta name="description" content="AngularJS and Angular Code Example for creating Invoices and Invoicing Application">
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+  <!--<link rel="stylesheet" type="text/css" href="css/style.css">-->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+  <script type="text/javascript" src="main.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="cont">
+<div class="container" width="800px" id="invoice" >
+  <div class="row">
+    <div class="col-xs-12 heading">
+      <strong>INVOICE</strong>
     </div>
-    <div class="form-group row">
-      <!--<label for="address">Address</label>-->
-      <input type="text" id="address" class="col-md-9">
+  </div>
+  <div class="row branding">
+    <div class="col-xs-6">
+
+        <label for="invoice">Invoice Number </label>
+      <input type="text">
 
     </div>
-  </form>
+
+
+  </div>
+</div>
+
+<div class="main2" >
+  <table border=1 width=100% ><th></th>
+    <th>Description</th>
+    <th>Quantity</th>
+    <th>Cost</th>
+    <th>Total</th>
+    <tr ng-repeat="item in items"><td text-align="center"><a class="btn"  onclick="removeItem()"><strong>[x]</strong></a></td>
+      <td><input type="text" ng-model="item.description" placeholder="Description"></td>
+      <td><input type="number" ng-model="item.quentity" placeholder="10"></td>
+      <td><input type="number" ng-model="item.cost" placeholder="10"></td>
+      <td placeholder="0">{{item.quentity*item.cost}}</td>
+    </tr>
+    <tr><td text-align="center"><a class="btn"  style="background-color:green;"  onclick="addItem()">[+]</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td ></td></tr>
+    <tr><td text-align="center"></td>
+      <td></td>
+      <td></td>
+      <td>Sub Total:</td>
+      <td><p>{{subTotal()}}</p>
+      </td></tr>
+    <tr><td text-align="center"></td>
+      <td></td>
+      <td></td>
+      <td>Tax:<input type="number" ng-model="invoice.tax"></td>
+      <td>
+        <p>{{calcuteTax()}}</p></td></tr>
+    <tr><td text-align="center"></td>
+      <td></td>
+      <td></td>
+      <td>Grand Total:</td>
+      <td>
+        <p>{{grandTotal()}}</p></td></tr>
+  </table>
+</div>
+</body>
 </div>
