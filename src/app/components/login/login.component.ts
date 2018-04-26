@@ -6,6 +6,10 @@ import {UserService} from '../../services/user.service';
   selector: 'login',
   templateUrl: './login.component.html',
   styles: [`
+    :host{
+      background-image: url("../../../assets/images/login-page-background-image.jpg");
+      display: block;
+    }
   #btnLogin{
     margin-left: 241px;
   }

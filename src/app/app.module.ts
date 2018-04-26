@@ -27,6 +27,7 @@ import {SellLiraComponent} from './components/sell-article/sell-lira.component';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
+
   {
     path: 'welcome',
     component: WelcomeComponent,
